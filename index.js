@@ -30,7 +30,6 @@ const options = {
 
 //gets order data from mongo (array of order documents from mongo)
 app.get('/orders', async (req, res) => {
-  console.log("hi")
   const orders = await client.db("WebstoreDB").collection("Orders").find().toArray()
   res.send(JSON.stringify(orders));
 });
@@ -128,11 +127,6 @@ app.post('/confirm-order', async (req, res) => {
   }
 
 });
-
-
-
-
-
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
